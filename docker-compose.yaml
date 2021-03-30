@@ -1,0 +1,39 @@
+version: "3"
+services:
+
+    webserver:
+      image: nginx:alpine
+      container_name: ke-webserver
+      working_dir: /application
+      volumes:
+          - ../ke-backend:/application
+          - ./nginx:/etc/nginx/conf.d/
+      ports:
+       - "80:80"
+
+    php-fpm:
+      build: php-fpm
+      container_name: ke-php-fpm
+      working_dir: /application
+      volumes:
+        - ../ke-backend:/application
+        - ./php-fpm/php.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+
+    mysql:
+        image: mysql:8.0
+        container_name: ke-db
+        restart: unless-stopped
+        volumes: 
+            - ke-db:/var/lib/mysql
+            - ./my.cnf:/etc/mysql/my.cnfs
+        environment: 
+            - MYSQL_ROOT_PASSWORD=thekedbroot
+            - MYSQL_DATABASE=ke
+        cap_add: 
+            - SYS_NICE
+        ports:
+            - "3306:3306"
+
+volumes:
+    ke-db:
+        driver: local
