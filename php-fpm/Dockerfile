@@ -25,6 +25,7 @@ RUN pip3 install imutils
 RUN pip3 install scikit-image
 RUN pip3 install python-dotenv
 RUN pip3 install pymysql
+RUN pip3 install boto3
 
 # clean apt install
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
