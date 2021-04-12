@@ -5,11 +5,11 @@ This is the docker deploy repository for the project KE. With docker, it should 
 1. Start a instance on AWS
 2. Associate a domain with the public IP address of the instance
 3. Configure Security Group Policy to allow access of the following port: 
-  * Public access (Source: 0.0.0.0/0)
-    * Web: 80
-  * Protected access, allowed in CUHK network only (Source: 137.189.0.0/16)
-    * SSH: 22
-    * MySQL: 3306
+   * Public access (Source: 0.0.0.0/0)
+     * Web: 80
+   * Protected access, allowed in CUHK network only (Source: 137.189.0.0/16)
+     * SSH: 22
+     * MySQL: 3306
 
 ## Deployment Flow
 1. Setup docker following the guide on the official docker website.
