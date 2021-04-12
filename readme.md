@@ -15,5 +15,5 @@ This is the docker deploy repository for the project KE. With docker, it should 
 1. Setup docker following the guide on the official docker website.
 2. Setup docker-compose
 3. Clone all repositories (ke-docker, ke-backend, ke-frontend) under home directory
-4. cd into this repository and run '''docker-compose up --build'''
+4. cd into this repository and run ```docker-compose up --build```
 5. finish setup on other repositories
